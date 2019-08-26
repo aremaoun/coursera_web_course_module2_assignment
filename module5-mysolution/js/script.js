@@ -88,6 +88,8 @@ $ajaxUtils.sendGetRequest(
 });
 // *** finish **
 
+console.log("toto");
+
 
 // Builds HTML for the home page based on categories array
 // returned from the server.
@@ -103,8 +105,9 @@ function buildAndShowHomeHTML (categories) {
       // variable's name implies it expects.
       // var chosenCategoryShortName = ....
       console.log(typeof categories);
-      var chosenCategoryShortName = chooseRandomCategory(categories["short_name"]); // à voir si faudrait pas parser au préalable
+      var chosenCategoryShortName = chooseRandomCategory(categories).short_name; // à voir si faudrait pas parser au préalable
 
+console.log("toto");
 
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2. Use existing insertProperty function for that purpose.
@@ -118,8 +121,8 @@ function buildAndShowHomeHTML (categories) {
       // it into the home html snippet.
       //
       // var homeHtmlToInsertIntoMainPage = ....
-      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtmlUrl,
-                                                        "{{randomCategoryShortName}}",
+      var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml,
+                                                        "randomCategoryShortName",
                                                         chosenCategoryShortName) ;
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
